@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجلس رمضان التفاعلي</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Reem+Kufi:wght@500&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="night-sky">
+        <div class="moon"></div>
+        <div class="stars"></div>
+    </div>
+
+    <section id="loginScreen" class="screen active">
+        <div class="login-box">
+            <div class="lantern">🏮</div>
+            <h1 class="kufi">فانوس المحبة</h1>
+            <p>سجل اسمك الرباعي لتدخل عالم التهاني</p>
+            <input type="text" id="userFullName" placeholder="الاسم الرباعي كاملاً..." class="ramadan-input">
+            <button class="main-btn" onclick="handleLogin()">دخول المجلس 🌙</button>
+        </div>
+    </section>
+
+    <section id="mainSite" class="screen">
+        <header class="site-header">
+            <div class="welcome-tag">أهلاً بك: <span id="displayName"></span></div>
+            <button class="logout-btn" onclick="location.reload()">خروج</button>
+        </header>
+
+        <div class="dashboard">
+            <div class="card gift-creator">
+                <h2 class="amiri">جهز هديتك الرمضانية 🎁</h2>
+                <input type="text" id="receiverName" placeholder="إلى (الاسم الرباعي للمستلم)..." class="ramadan-input">
+                <textarea id="messageBody" placeholder="اكتب رسالتك الصادقة هنا..." rows="4" class="ramadan-input"></textarea>
+                <button class="gold-btn" onclick="saveGift()">تغليف وإرسال الهدية ✨</button>
+            </div>
+
+            <div id="privateGifts" class="special-section" style="display:none;">
+                <h2 class="amiri">🌟 مفاجأة رمضانية لك 🌟</h2>
+                <div id="privateList"></div>
+            </div>
+
+            <div class="card wall">
+                <h2 class="amiri">آخر التهاني في المجلس</h2>
+                <div id="publicWall" class="wall-grid">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
