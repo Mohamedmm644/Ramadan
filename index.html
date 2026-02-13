@@ -3,54 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجلس رمضان التفاعلي</title>
+    <title>إلى إيثار.. قلبي وروحي</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Reem+Kufi:wght@500&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="night-sky">
-        <div class="moon"></div>
-        <div class="stars"></div>
+    <div class="main-card">
+        <div class="photo-gallery">
+            <img src="photo1.jpg" alt="صورة إيثار 1" onerror="this.src='https://via.placeholder.com/150/ff2e63/ffffff?text=❤️'">
+            <img src="photo2.jpg" alt="صورة إيثار 2" onerror="this.src='https://via.placeholder.com/150/ff758f/ffffff?text=❤️'">
+            <img src="photo3.jpg" alt="صورة إيثار 3" onerror="this.src='https://via.placeholder.com/150/ff2e63/ffffff?text=❤️'">
+        </div>
+
+        <h1>إلى حبيبتي إيثار ❤️</h1>
+
+        <div class="message-box">
+            <p>تعالي أقولك أنا حبيتك ليه..</p>
+            والله مش علشان شكلك خالص مع أنك حلوة وتتحبي.. أنا حبيتك علشان أنتي عرفتي تخليني أحسن وخلتيني أحس إني مطمن ديماً وحسستيني أنتي فعلاً تتحب بجد.. أنتي تستاهلي الواحد يتعب علشانك وتستاهلي الواحد يصونك.. أنتي بجد خلتيني مكتفي بيكي وبوجودك وبس.
+            <br><br>
+            أوعدك إني مش هسيبك يوم زعلانة وعمل ليكي اللي أقدر عليه، أنا فعلاً مش بعرف أعمل حاجة ليكي بس بتمنى تجيلي فرصة أعمل فيها حاجة تفرحك.. أنتي أحسن حاجة حصلت ليا، وخلتيني أحبك من غير ما أشوفك وتعلقت بيكي أوي.. وأنا بحبك أوي أوي أوي أوي يا إيثار يا قلبي وروحي 💞 🫂
+        </div>
+
+        <button class="btn-love" onclick="burst(event)">اضغطي هنا يا ست البنات 💖</button>
     </div>
 
-    <section id="loginScreen" class="screen active">
-        <div class="login-box">
-            <div class="lantern">🏮</div>
-            <h1 class="kufi">فانوس المحبة</h1>
-            <p>سجل اسمك الرباعي لتدخل عالم التهاني</p>
-            <input type="text" id="userFullName" placeholder="الاسم الرباعي كاملاً..." class="ramadan-input">
-            <button class="main-btn" onclick="handleLogin()">دخول المجلس 🌙</button>
-        </div>
-    </section>
+    <script>
+        // كود الجافا سكريبت لإضافة التأثيرات الحركية
+        function createRain() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createRain, 300);
 
-    <section id="mainSite" class="screen">
-        <header class="site-header">
-            <div class="welcome-tag">أهلاً بك: <span id="displayName"></span></div>
-            <button class="logout-btn" onclick="location.reload()">خروج</button>
-        </header>
-
-        <div class="dashboard">
-            <div class="card gift-creator">
-                <h2 class="amiri">جهز هديتك الرمضانية 🎁</h2>
-                <input type="text" id="receiverName" placeholder="إلى (الاسم الرباعي للمستلم)..." class="ramadan-input">
-                <textarea id="messageBody" placeholder="اكتب رسالتك الصادقة هنا..." rows="4" class="ramadan-input"></textarea>
-                <button class="gold-btn" onclick="saveGift()">تغليف وإرسال الهدية ✨</button>
-            </div>
-
-            <div id="privateGifts" class="special-section" style="display:none;">
-                <h2 class="amiri">🌟 مفاجأة رمضانية لك 🌟</h2>
-                <div id="privateList"></div>
-            </div>
-
-            <div class="card wall">
-                <h2 class="amiri">آخر التهاني في المجلس</h2>
-                <div id="publicWall" class="wall-grid">
-                    </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+        function burst(e) {
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.innerHTML = ['❤️', '💖', '✨', '🌸'][Math.floor(Math.random() * 4)];
+                p.style.left = e.clientX + 'px';
+                p.style.top = e.clientY + 'px';
+                const dx = (Math.random() - 0.5) * 400 + 'px';
+                const dy = (Math.random() - 0.5) * 400 + 'px';
+                p.style.setProperty('--dx', dx);
+                p.style.setProperty('--dy', dy);
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 1500);
+            }
+        }
+    </script>
 </body>
 </html>
